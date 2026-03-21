@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Ticket {
+  id              String    @id @default(uuid())
+  customerEmail   String?
+  customerName    String?
+  subject         String
+  status          String    @default("open") // open, escalated, resolved
+  priority        String    @default("normal") // low, normal, high, urgent
+  category        String?
+  sentiment       Float     @default(0) // -1 to 1
+  confidenceScore Float     @default(1) // 0 to 1, lower = needs escalation
+  escalatedAt     DateTime?
+  resolvedAt      DateTime?
+  resolution      String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  messages        Message[]
+  metadata        String?   // JSON string for additional data
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  ticketId  String
+  ticket    Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  role      String   // user, assistant, system
+  content   String
+  metadata  String?  // JSON for sentiment, intent, etc.
+  createdAt DateTime @default(now())
+}
+
+model KnowledgeBase {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  category  String
+  tags      String   // comma-separated
+  embedding String?  // for future vector search
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Analytics {
+  id                  String   @id @default(uuid())
+  date                DateTime @default(now())
+  totalTickets        Int      @default(0)
+  resolvedByAI        Int      @default(0)
+  escalatedToHuman    Int      @default(0)
+  avgResolutionTime   Float    @default(0) // in minutes
+  avgSentiment        Float    @default(0)
+  costSaved           Float    @default(0) // estimated $ saved
+}
+
+model FineTuningData {
+  id           String   @id @default(uuid())
+  ticketId     String
+  conversation String   // Full conversation JSON
+  resolution   String
+  wasHelpful   Boolean?
+  feedback     String?
+  exported     Boolean  @default(false)
+  createdAt    DateTime @default(now())
+}

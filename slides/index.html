@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support Agent - Pitch Deck</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+        }
+        
+        .slide {
+            width: 100%;
+            min-height: 100vh;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            page-break-after: always;
+            position: relative;
+        }
+        
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        /* Slide Themes */
+        .theme-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .theme-dark {
+            background: #1a1a2e;
+        }
+        
+        .theme-blue {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        }
+        
+        .theme-green {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+        
+        .theme-orange {
+            background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+        }
+        
+        .theme-light {
+            background: #f8fafc;
+            color: #1e293b;
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        h2 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        
+        h3 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 24px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            font-size: 28px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+        
+        .small {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+        
+        /* Components */
+        .emoji {
+            font-size: 80px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .stat-box {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 56px;
+            font-weight: 700;
+            color: #fbbf24;
+        }
+        
+        .stat-label {
+            font-size: 20px;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-box {
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .feature-desc {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+        
+        th, td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        th {
+            background: rgba(255,255,255,0.1);
+            font-weight: 600;
+        }
+        
+        .highlight {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+        
+        .code-block {
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 30px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+        
+        .architecture {
+            background: rgba(0,0,0,0.3);
+            border-radius: 16px;
+            padding: 40px;
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.6;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .pill {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #fbbf24;
+            color: #1a1a2e;
+            padding: 20px 50px;
+            border-radius: 12px;
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 30px;
+        }
+        
+        ul {
+            list-style: none;
+            font-size: 24px;
+        }
+        
+        ul li {
+            padding: 15px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        @media print {
+            .slide {
+                height: 100vh;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide theme-gradient center">
+    <div class="emoji">🤖</div>
+    <h1>Customer Support Agent</h1>
+    <p class="subtitle">AI That Resolves Tickets, Not Just Responds</p>
+    <div style="margin-top: 60px;">
+        <span class="pill">AI Agents Hackathon</span>
+        <span class="pill">Built with Kiro</span>
+        <span class="pill">Powered by Claude</span>
+    </div>
+    <p class="small" style="margin-top: 60px;">Kevin Tucker</p>
+    <div class="slide-number">1 / 12</div>
+</div>
+
+<!-- Slide 2: The Problem -->
+<div class="slide theme-dark">
+    <h2>😰 The Problem</h2>
+    <p class="subtitle">Customer Support is Broken</p>
+    
+    <div class="stat-grid">
+        <div class="stat-box">
+            <div class="stat-number">$15-25</div>
+            <div class="stat-label">Cost per ticket with human agents</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">80%</div>
+            <div class="stat-label">Of tickets are repetitive questions</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">Hours</div>
+            <div class="stat-label">Average customer wait time</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Learning from past resolutions</div>
+        </div>
+    </div>
+    <div class="slide-number">2 / 12</div>
+</div>
+
+<!-- Slide 3: The Solution -->
+<div class="slide theme-blue">
+    <h2>💡 The Solution</h2>
+    <p class="subtitle">AI Agent That Actually Resolves Issues</p>
+    
+    <div class="two-column">
+        <div>
+            <h3>Before (Human)</h3>
+            <ul style="list-style: none;">
+                <li style="padding-left: 0;">❌ Hours of wait time</li>
+                <li style="padding-left: 0;">❌ $15-25 per ticket</li>
+                <li style="padding-left: 0;">❌ Inconsistent answers</li>
+                <li style="padding-left: 0;">❌ No continuous learning</li>
+            </ul>
+        </div>
+        <div>
+            <h3>After (AI Agent)</h3>
+            <ul>
+                <li>Instant responses 24/7</li>
+                <li>$0.02 per ticket</li>
+                <li>Consistent, accurate answers</li>
+                <li>Learns from every interaction</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide-number">3 / 12</div>
+</div>
+
+<!-- Slide 4: Smart Escalation -->
+<div class="slide theme-orange">
+    <h2>🧠 Smart Escalation</h2>
+    <p class="subtitle">AI Knows When to Hand Off to Humans</p>
+    
+    <table>
+        <tr>
+            <th>Signal</th>
+            <th>Detection</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>😠 Frustration</td>
+            <td>"This is ridiculous!"</td>
+            <td>Escalate + High Priority</td>
+        </tr>
+        <tr>
+            <td>🎯 Complexity</td>
+            <td>Low confidence score</td>
+            <td>Route to specialist</td>
+        </tr>
+        <tr>
+            <td>🗣️ Request</td>
+            <td>"Speak to manager"</td>
+            <td>Immediate escalation</td>
+        </tr>
+        <tr>
+            <td>⚖️ Risk</td>
+            <td>"lawyer", "lawsuit"</td>
+            <td>Escalate + Flag legal</td>
+        </tr>
+    </table>
+    
+    <p style="margin-top: 40px; text-align: center;">
+        <span class="highlight">Result:</span> Humans handle only 30% of tickets — the ones that matter
+    </p>
+    <div class="slide-number">4 / 12</div>
+</div>
+
+<!-- Slide 5: Architecture -->
+<div class="slide theme-dark">
+    <h2>🏗️ Architecture</h2>
+    <p class="subtitle">Production-Ready from Day 1</p>
+    
+    <div class="architecture">
+┌─────────────────────────────────────────────────────────┐
+│                    CHAT WIDGET                          │
+│                   (React + Next.js)                     │
+└───────────────────────────┬─────────────────────────────┘
+                            │
+┌───────────────────────────▼─────────────────────────────┐
+│                  INTELLIGENCE LAYER                     │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────┐  │
+│  │  Claude AI  │  │  Escalation │  │ Knowledge Base  │  │
+│  │  (Anthropic)│  │   Engine    │  │   (RAG-style)   │  │
+│  └─────────────┘  └─────────────┘  └─────────────────┘  │
+└───────────────────────────┬─────────────────────────────┘
+                            │
+┌───────────────────────────▼─────────────────────────────┐
+│                     DATA LAYER                          │
+│           PostgreSQL (Neon) + Prisma ORM                │
+│     Tickets │ Messages │ Analytics │ Fine-tuning        │
+└─────────────────────────────────────────────────────────┘
+    </div>
+    <div class="slide-number">5 / 12</div>
+</div>
+
+<!-- Slide 6: Features -->
+<div class="slide theme-gradient">
+    <h2>✨ Key Features</h2>
+    
+    <div class="feature-grid">
+        <div class="feature-box">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-title">Instant Resolution</div>
+            <div class="feature-desc">3-second response time with Claude AI</div>
+        </div>
+        <div class="feature-box">
+            <div class="feature-icon">🎯</div>
+            <div class="feature-title">Smart Escalation</div>
+            <div class="feature-desc">Sentiment & confidence analysis</div>
+        </div>
+        <div class="feature-box">
+            <div class="feature-icon">📊</div>
+            <div class="feature-title">ROI Dashboard</div>
+            <div class="feature-desc">Track savings in real-time</div>
+        </div>
+        <div class="feature-box">
+            <div class="feature-icon">🔌</div>
+            <div class="feature-title">Easy Embed</div>
+            <div class="feature-desc">Drop-in widget for any site</div>
+        </div>
+        <div class="feature-box">
+            <div class="feature-icon">📚</div>
+            <div class="feature-title">Knowledge Base</div>
+            <div class="feature-desc">RAG-powered FAQ retrieval</div>
+        </div>
+        <div class="feature-box">
+            <div class="feature-icon">🔄</div>
+            <div class="feature-title">Continuous Learning</div>
+            <div class="feature-desc">Export data for fine-tuning</div>
+        </div>
+    </div>
+    <div class="slide-number">6 / 12</div>
+</div>
+
+<!-- Slide 7: Live Demo -->
+<div class="slide theme-dark center">
+    <div class="emoji">🎬</div>
+    <h1>Live Demo</h1>
+    <p class="subtitle">See it in action</p>
+    
+    <div style="margin-top: 40px;">
+        <p><strong>Test 1:</strong> "How do I reset my password?"</p>
+        <p style="color: #4ade80;">→ Instant resolution with knowledge base</p>
+    </div>
+    
+    <div style="margin-top: 40px;">
+        <p><strong>Test 2:</strong> "This is ridiculous! I want to speak to a manager!"</p>
+        <p style="color: #f97316;">→ Auto-escalation + Priority: High</p>
+    </div>
+    
+    <a href="https://customer-support-agent-kevin-tuckers-projects.vercel.app" class="cta-button">
+        Try Live Demo →
+    </a>
+    <div class="slide-number">7 / 12</div>
+</div>
+
+<!-- Slide 8: Business Model -->
+<div class="slide theme-green">
+    <h2>💰 Business Model</h2>
+    <p class="subtitle">Revenue That Scales</p>
+    
+    <table>
+        <tr>
+            <th>Tier</th>
+            <th>Price</th>
+            <th>Target</th>
+        </tr>
+        <tr>
+            <td><strong>Starter</strong></td>
+            <td>$0.10/ticket</td>
+            <td>SMBs, Startups</td>
+        </tr>
+        <tr>
+            <td><strong>Growth</strong></td>
+            <td>$0.07/ticket</td>
+            <td>Mid-market</td>
+        </tr>
+        <tr>
+            <td><strong>Enterprise</strong></td>
+            <td>Custom</td>
+            <td>Fortune 500</td>
+        </tr>
+    </table>
+    
+    <div class="stat-grid" style="margin-top: 50px;">
+        <div class="stat-box">
+            <div class="stat-number">80%</div>
+            <div class="stat-label">Gross Margin</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$0.02</div>
+            <div class="stat-label">Cost per ticket (API)</div>
+        </div>
+    </div>
+    <div class="slide-number">8 / 12</div>
+</div>
+
+<!-- Slide 9: ROI Calculator -->
+<div class="slide theme-dark">
+    <h2>📈 ROI Calculator</h2>
+    <p class="subtitle">The Math That Sells Itself</p>
+    
+    <p style="text-align: center; margin-bottom: 30px;">Customer Scenario: <span class="highlight">10,000 tickets/month</span></p>
+    
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Before (Human)</th>
+            <th>After (AI Agent)</th>
+        </tr>
+        <tr>
+            <td>Tickets handled by humans</td>
+            <td>10,000</td>
+            <td style="color: #4ade80;">3,000</td>
+        </tr>
+        <tr>
+            <td>Cost per ticket</td>
+            <td>$15</td>
+            <td style="color: #4ade80;">$5 (blended)</td>
+        </tr>
+        <tr>
+            <td>Monthly cost</td>
+            <td>$150,000</td>
+            <td style="color: #4ade80;">$50,000</td>
+        </tr>
+        <tr>
+            <td><strong>Annual Savings</strong></td>
+            <td>—</td>
+            <td style="color: #fbbf24; font-size: 28px;"><strong>$1,200,000</strong></td>
+        </tr>
+    </table>
+    <div class="slide-number">9 / 12</div>
+</div>
+
+<!-- Slide 10: Built with Kiro -->
+<div class="slide theme-blue">
+    <h2>⚡ Built with Kiro</h2>
+    <p class="subtitle">Spec-Driven Development = 10x Speed</p>
+    
+    <div class="two-column">
+        <div>
+            <h3>Traditional Approach</h3>
+            <p style="font-size: 20px;">4-6 weeks</p>
+            <ul style="list-style: none; font-size: 20px;">
+                <li style="padding-left: 0;">❌ Weeks of planning</li>
+                <li style="padding-left: 0;">❌ Back-and-forth iterations</li>
+                <li style="padding-left: 0;">❌ "That's not what I meant"</li>
+                <li style="padding-left: 0;">❌ Technical debt</li>
+            </ul>
+        </div>
+        <div>
+            <h3>With Kiro</h3>
+            <p style="font-size: 20px; color: #4ade80;">7 days</p>
+            <ul style="font-size: 20px;">
+                <li>Hours of structured specs</li>
+                <li>Clear requirements upfront</li>
+                <li>Explicit acceptance criteria</li>
+                <li>Best practices built-in</li>
+            </ul>
+        </div>
+    </div>
+    
+    <p style="text-align: center; margin-top: 50px; font-size: 28px;">
+        🤖 <span class="highlight">Agents building agents</span> — the future of software
+    </p>
+    <div class="slide-number">10 / 12</div>
+</div>
+
+<!-- Slide 11: Tech Stack -->
+<div class="slide theme-dark">
+    <h2>🛠️ Tech Stack</h2>
+    <p class="subtitle">Enterprise-Grade, Hackathon Speed</p>
+    
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Technology</th>
+            <th>Why</th>
+        </tr>
+        <tr>
+            <td>AI Model</td>
+            <td>Claude (Anthropic)</td>
+            <td>Best reasoning, safest</td>
+        </tr>
+        <tr>
+            <td>Framework</td>
+            <td>Next.js 14</td>
+            <td>Full-stack, serverless</td>
+        </tr>
+        <tr>
+            <td>Database</td>
+            <td>PostgreSQL (Neon)</td>
+            <td>Scales to millions</td>
+        </tr>
+        <tr>
+            <td>Deployment</td>
+            <td>Vercel</td>
+            <td>Zero-config, global CDN</td>
+        </tr>
+        <tr>
+            <td>Development</td>
+            <td><strong>Kiro</strong></td>
+            <td>Spec-driven AI development</td>
+        </tr>
+    </table>
+    <div class="slide-number">11 / 12</div>
+</div>
+
+<!-- Slide 12: CTA -->
+<div class="slide theme-gradient center">
+    <div class="emoji">🚀</div>
+    <h1>Try It Now</h1>
+    <p class="subtitle">See the future of customer support</p>
+    
+    <div style="margin-top: 40px;">
+        <p><strong>Live Demo:</strong></p>
+        <p style="font-size: 20px;">customer-support-agent-kevin-tuckers-projects.vercel.app</p>
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <p><strong>GitHub:</strong></p>
+        <p style="font-size: 20px;">github.com/kevintucker/Customer-Support-Agent</p>
+    </div>
+    
+    <div style="margin-top: 50px;">
+        <span class="pill">70% Tickets Automated</span>
+        <span class="pill">$15 Saved Per Ticket</span>
+        <span class="pill">Built in 7 Days</span>
+    </div>
+    
+    <p style="margin-top: 60px; font-size: 32px; font-weight: 600;">Thank You!</p>
+    <div class="slide-number">12 / 12</div>
+</div>
+
+</body>
+</html>

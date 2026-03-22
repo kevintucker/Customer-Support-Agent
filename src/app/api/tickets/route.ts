@@ -23,7 +23,10 @@ export async function GET(req: NextRequest) {
     return Response.json(tickets)
   } catch (error) {
     console.error('Error fetching tickets:', error)
-    return Response.json({ error: 'Failed to fetch tickets' }, { status: 500 })
+    return Response.json({ 
+      error: 'Failed to fetch tickets', 
+      details: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 })
   }
 }
 

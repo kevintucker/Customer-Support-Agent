@@ -40,9 +40,16 @@ export default function AnalyticsDashboard() {
     try {
       const res = await fetch('/api/analytics')
       const data = await res.json()
-      setAnalytics(data)
+      // Verify the response has expected structure
+      if (data && typeof data.totalTickets === 'number') {
+        setAnalytics(data)
+      } else if (data.error) {
+        console.error('Analytics API error:', data.error)
+        setAnalytics(null)
+      }
     } catch (error) {
       console.error('Failed to fetch analytics:', error)
+      setAnalytics(null)
     } finally {
       setLoading(false)
     }

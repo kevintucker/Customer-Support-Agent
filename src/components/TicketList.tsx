@@ -48,9 +48,16 @@ export default function TicketList({ onSelectTicket, selectedTicketId }: TicketL
       const url = filter === 'all' ? '/api/tickets' : `/api/tickets?status=${filter}`
       const res = await fetch(url)
       const data = await res.json()
-      setTickets(data)
+      // Ensure data is an array before setting state
+      if (Array.isArray(data)) {
+        setTickets(data)
+      } else {
+        console.error('API returned non-array:', data)
+        setTickets([])
+      }
     } catch (error) {
       console.error('Failed to fetch tickets:', error)
+      setTickets([])
     } finally {
       setLoading(false)
     }
